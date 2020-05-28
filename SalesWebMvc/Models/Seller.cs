@@ -9,9 +9,17 @@ namespace SalesWebMvc.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
+
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
+
+        [DataType(DataType.Date)]
+        [Display(Name = "Birth Date")]
+        [DisplayFormat(ApplyFormatInEditMode = false, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime BirthDate { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:F2}")]
+        [Display(Name = "Base Salary")]
         public double BaseSalary { get; set; }
         public Department Department { get; set; }
         public int DepartmentId { get; set; }
